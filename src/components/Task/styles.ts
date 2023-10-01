@@ -1,6 +1,10 @@
 import { StyleSheet } from 'react-native'
 
 export const styles = StyleSheet.create({
+  content: {
+    marginRight: 14,
+    marginLeft: 14,
+  },
   tasks: {
     borderRadius: 5,
     borderWidth: 1,
