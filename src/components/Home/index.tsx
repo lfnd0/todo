@@ -15,11 +15,20 @@ export function Home() {
   const [description, setDescription] = useState('')
   const [counterTasksCreated, setCounterTasksCreated] = useState<number>(tasks.length)
   const [counterTasksDone, setCounterTasksDone] = useState<number>(tasks.filter(item => item.isDone === true).length)
+  const [isHoveredButton, setIsHoveredButton] = useState(false)
 
   useEffect(() => {
     setCounterTasksCreated(tasks.length)
     setCounterTasksDone(tasks.filter(item => item.isDone === true).length)
   }, [tasks])
+
+  function handlePressInButton() {
+    setIsHoveredButton(true)
+  }
+
+  function handlePressOutButton() {
+    setIsHoveredButton(false)
+  }
 
   function handleTaskAdd() {
     if (!description || tasks.find(item => description === item.description)) {
@@ -74,8 +83,10 @@ export function Home() {
           />
 
           <TouchableOpacity
-            style={styles.button}
-            activeOpacity={0.8}
+            onPressIn={handlePressInButton}
+            onPressOut={handlePressOutButton}
+            activeOpacity={1}
+            style={[styles.button, isHoveredButton ? styles.buttonHovered : null]}
             onPress={handleTaskAdd}
           >
             < Feather

@@ -26,9 +26,14 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  doneCheckbox: {
+  checkboxDone: {
     backgroundColor: '#5E60CE',
     borderColor: '#5E60CE',
+  },
+  checkboxHovered: {
+    opacity: 0.2,
+    backgroundColor: '#1E6F9F',
+    borderColor: '#1E6F9F',
   },
   check: {
     fontSize: 14,
@@ -39,13 +44,9 @@ export const styles = StyleSheet.create({
     color: '#F2F2F2',
     width: '80%',
   },
-  doneDescription: {
+  descriptionDone: {
     color: '#808080',
     textDecorationLine: 'line-through',
-  },
-  trash: {
-    fontSize: 14,
-    color: '#808080'
   },
   trashHovered: {
     color: '#E25858',
@@ -59,5 +60,9 @@ export const styles = StyleSheet.create({
   buttonHovered: {
     borderRadius: 5,
     backgroundColor: '#333333',
-  }
+  },
+  trash: {
+    fontSize: 14,
+    color: '#808080',
+  },
 })

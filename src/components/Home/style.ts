@@ -46,6 +46,9 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  buttonHovered: {
+    backgroundColor: '#4EA8DE',
+  },
   plus: {
     fontSize: 17,
     color: '#FFF',

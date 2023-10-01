@@ -12,39 +12,50 @@ type Props = {
 }
 
 export function Task({ description, isDone, done, remove }: Props) {
-  const [isHovered, setIsHovered] = useState(false)
+  const [isHoveredCheckbox, setIsHoveredCheckbox] = useState(false)
+  const [isHoveredTrash, setIsHoveredTrash] = useState(false)
 
-  function handlePressIn() {
-    setIsHovered(true);
-  };
+  function handlePressInCheckbox() {
+    setIsHoveredCheckbox(true)
+  }
 
-  function handlePressOut() {
-    setIsHovered(false);
-  };
+  function handlePressOutCheckbox() {
+    setIsHoveredCheckbox(false)
+  }
+
+  function handlePressInTrash() {
+    setIsHoveredTrash(true)
+  }
+
+  function handlePressOutTrash() {
+    setIsHoveredTrash(false)
+  }
 
   return (
     <View style={styles.content}>
       <View style={styles.tasks}>
         <TouchableOpacity
-          style={[styles.checkbox, isDone ? styles.doneCheckbox : null]}
+          onPressIn={handlePressInCheckbox}
+          onPressOut={handlePressOutCheckbox}
+          style={[styles.checkbox, isHoveredCheckbox ? styles.checkboxHovered : null, isDone ? styles.checkboxDone : null]}
           onPress={done}
         >
           <MaterialCommunityIcons name="check" style={isDone ? styles.check : { display: 'none' }} />
         </TouchableOpacity>
 
-        <Text style={[styles.description, isDone ? styles.doneDescription : null]}>
+        <Text style={[styles.description, isDone ? styles.descriptionDone : null]}>
           {description}
         </Text>
 
         <TouchableOpacity
           onPress={remove}
-          onPressIn={handlePressIn}
-          onPressOut={handlePressOut}
-          style={[styles.button, isHovered ? styles.buttonHovered : null]}
+          onPressIn={handlePressInTrash}
+          onPressOut={handlePressOutTrash}
+          style={[styles.button, isHoveredTrash ? styles.buttonHovered : null]}
         >
           <FontAwesome5
             name="trash-alt"
-            style={[ styles.trash, isHovered ? styles.trashHovered : null]}
+            style={[styles.trash, isHoveredTrash ? styles.trashHovered : null]}
           />
         </TouchableOpacity>
       </View>
