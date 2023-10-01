@@ -60,18 +60,18 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   create: {
-    fontSize: 17,
+    fontSize: 16,
     color: '#4EA8DE',
     fontWeight: 'bold',
   },
   done: {
-    fontSize: 17,
+    fontSize: 16,
     color: '#8284FA',
     fontWeight: 'bold',
   },
   counter: {
     marginLeft: 8,
-    fontSize: 15,
+    fontSize: 14,
     paddingVertical: 1,
     paddingHorizontal: 12,
     borderRadius: 10,
