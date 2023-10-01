@@ -1,35 +1,36 @@
-import { Image, Text, TouchableOpacity, View } from 'react-native';
-import { styles } from './styles';
+import { Text, TouchableOpacity, View } from 'react-native'
+import { styles } from './styles'
+import { MaterialCommunityIcons } from '@expo/vector-icons'
+import { FontAwesome5 } from '@expo/vector-icons';
 
 type Props = {
   description: string
+  isDone: boolean
   done: () => void
   remove: () => void
 }
 
-const assets = '../../../assets/'
-
-export function Task({ description, done, remove }: Props) {
+export function Task({ description, isDone, done, remove }: Props) {
   return (
     <View style={styles.content}>
       <View style={styles.tasks}>
         <TouchableOpacity
-          style={styles.checkbox}
+          style={isDone ? styles.doneCheckbox : styles.checkbox}
           onPress={done}
         >
-
+          <MaterialCommunityIcons name="check" style={isDone ? styles.check : { display: 'none' }} />
         </TouchableOpacity>
 
-        <Text style={styles.description}>
+        <Text style={isDone ? styles.doneDescription : styles.description}>
           {description}
         </Text>
 
         <TouchableOpacity
           onPress={remove}
         >
-          <Image
+          <FontAwesome5
+            name="trash-alt"
             style={styles.trash}
-            source={require(`${assets}trash.png`)}
           />
         </TouchableOpacity>
       </View>

@@ -19,19 +19,40 @@ export const styles = StyleSheet.create({
   },
   checkbox: {
     borderWidth: 1,
-    borderRadius: 10,
-    width: 20,
-    height: 20,
+    borderRadius: 11,
+    width: 22,
+    height: 22,
     borderColor: '#4EA8DE',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  doneCheckbox: {
+    borderWidth: 1,
+    borderRadius: 11,
+    width: 22,
+    height: 22,
+    backgroundColor: '#5E60CE',
+    borderColor: '#5E60CE',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   description: {
     fontSize: 14,
     color: '#F2F2F2',
     width: '80%',
   },
+  doneDescription: {
+    fontSize: 14,
+    color: '#808080',
+    width: '80%',
+    textDecorationLine: 'line-through',
+  },
   trash: {
-    width: 12.48,
-    height: 14,
-    resizeMode: 'stretch',
-  }
+    fontSize: 16,
+    color: '#808080'
+  },
+  check: {
+    fontSize: 14,
+    color: '#FFF',
+  },
 })

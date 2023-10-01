@@ -1,4 +1,5 @@
 import { Alert, FlatList, Image, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import { Feather } from '@expo/vector-icons'
 import { styles } from './style'
 import { Task } from '../Task'
 import { useEffect, useState } from 'react'
@@ -8,8 +9,6 @@ type TaskType = {
   description: string
   isDone: boolean
 }
-
-const assets = '../../../assets/'
 
 export function Home() {
   const [tasks, setTasks] = useState<TaskType[]>([])
@@ -24,7 +23,7 @@ export function Home() {
 
   function handleTaskAdd() {
     if (!description || tasks.find(item => description === item.description)) {
-      return Alert.alert('Tarefa inválida!', 'Revise a descrição da sua tarefa.')
+      return Alert.alert('Tarefa inválida', 'Revise a descrição da sua tarefa.')
     }
 
     const task = {
@@ -56,16 +55,14 @@ export function Home() {
 
   return (
     <View style={styles.container}>
-
       <View style={styles.header}>
         <Image
           style={styles.logo}
-          source={require(`${assets}logo.png`)}
+          source={require('../../../assets/logo.png')}
         />
       </View>
 
       <View style={styles.content}>
-
         <View style={styles.form}>
           <TextInput
             style={styles.input}
@@ -81,15 +78,14 @@ export function Home() {
             activeOpacity={0.8}
             onPress={handleTaskAdd}
           >
-            <Image
+            < Feather
+              name='plus-circle'
               style={styles.plus}
-              source={require(`${assets}plus.png`)}
             />
           </TouchableOpacity>
         </View>
 
         <View style={styles.status}>
-
           <View style={styles.inline}>
             <Text style={styles.create}>Criadas</Text>
             <Text style={styles.counter}>{counterTasksCreated}</Text>
@@ -99,16 +95,16 @@ export function Home() {
             <Text style={styles.done}>Concluídas</Text>
             <Text style={styles.counter}>{counterTasksDone}</Text>
           </View>
-
         </View>
-
       </View>
+
       <FlatList
         data={tasks}
         keyExtractor={item => item.description}
         renderItem={({ item }) => (
           <Task
             description={item.description}
+            isDone={item.isDone}
             done={() => handleTaskDone(item)}
             remove={() => handleTaskRemove(item)}
           />

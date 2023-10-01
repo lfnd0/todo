@@ -47,9 +47,8 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   plus: {
-    width: 16,
-    height: 16,
-    resizeMode: 'stretch',
+    fontSize: 17,
+    color: '#FFF',
   },
   status: {
     marginBottom: 20,
