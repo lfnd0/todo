@@ -19,7 +19,7 @@
 
 ### :hammer_and_wrench: Tecnologias
 - [Node.js](https://nodejs.org/en)
-- [TipeScript](https://www.typescriptlang.org/)
+- [TypeScript](https://www.typescriptlang.org/)
 - [Expo](https://docs.expo.dev/get-started/create-a-project/)
 
 ### :fire: Execução do projeto
